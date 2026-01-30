@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researcher Portfolio</title>
+    <style>
+        /* CSS Styles - This controls the look of your website */
+        :root {
+            --primary-color: #005f73; /* Academic Blue */
+            --secondary-color: #94d2bd;
+            --text-dark: #333;
+            --light-bg: #f4f4f9;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-dark);
+        }
+        /* Navigation */
+        nav {
+            background: #fff;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Sections */
+        .container {
+            padding: 2rem 5%;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 2rem;
+            color: var(--primary-color);
+        }
+        
+        /* Lists */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            background: var(--secondary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .publication-item {
+            background: white;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>[Your Name Here]</h1>
+        <p>B.Pharm Professional Student & Researcher</p>
+        <p>Pabna University of Science and Technology</p>
+    </header>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I am a pharmacy student passionate about discovering new therapeutic avenues. 
+                My research focuses on understanding complex biological mechanisms to aid in drug discovery. 
+                I am currently working towards a future in academic research, with a goal of pursuing a PhD in Europe.
+            </p>
+        </section>
+
+        <section id="interests">
+            <h2>Research Interests</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Pharmacology</span>
+                <span class="skill-tag">Drug Design</span>
+                <span class="skill-tag">Neuroscience</span>
+                <span class="skill-tag">Cancer Biology</span>
+                <span class="skill-tag">Network Pharmacology</span>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <p>I have authored 4 research articles published in journals including Springer and Wiley.</p>
+            
+            <div class="publication-item">
+                <strong>Paper Title 1 (Springer)</strong><br>
+                <em>Authors list...</em><br>
+                <a href="#">[Link to Article]</a>
+            </div>
+
+            <div class="publication-item">
+                <strong>Paper Title 2 (Wiley)</strong><br>
+                <em>Authors list...</em><br>
+                <a href="#">[Link to Article]</a>
+            </div>
+            
+             <div class="publication-item">
+                <strong>Paper Title 3 (Wiley)</strong><br>
+                <em>Authors list...</em><br>
+                <a href="#">[Link to Article]</a>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Current Projects</h2>
+            
+            <div class="publication-item">
+                <h3>Tetrahydrocurcumin & Antidepressant Activity</h3>
+                <p>Investigating the therapeutic potential of tetrahydrocurcumin using in-vivo models to understand its effects on depression.</p>
+            </div>
+
+            <div class="publication-item">
+                <h3>Cyberbullying & Online Safety</h3>
+                <p>A cross-sectional study assessing the impact of online harassment among students in the Pabna District.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><strong>Lab:</strong> In-vivo trials, Pharmacology protocols</li>
+                <li><strong>Software:</strong> Cytoscape (Network Pharmacology), Molecular Docking tools</li>
+                <li><strong>Languages:</strong> English (Academic), German (Learning)</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out for collaborations.</p>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>Location: Satkhira / Pabna, Bangladesh</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Researcher Portfolio.</p>
+    </footer>
+
+</body>
+</html>
