@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dipu Bishwas Portfolio</title>
     <style>
-        /* CSS Styles - This controls the look of your website */
+        /* CSS Styles */
         :root {
-            --primary-color: #005f73; /* Academic Blue */
+            --primary-color: #005f73;
             --secondary-color: #94d2bd;
             --text-dark: #333;
             --light-bg: #f4f4f9;
@@ -42,13 +42,15 @@
             font-weight: bold;
         }
         
-       /* Hero Section with Cover Photo */
+        /* Hero Section with Cover Photo */
         .hero {
-            background: linear-gradient(rgba(0, 95, 115, 0.8), rgba(0, 95, 115, 0.8)), url('cover.jpg');
+            /* Adjusted opacity to 0.6 so the cover photo is clearly visible */
+            background: linear-gradient(rgba(0, 95, 115, 0.6), rgba(0, 95, 115, 0.6)), url('cover.jpg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             color: white;
-            padding: 6rem 5%; /* Increased padding to show more of the image */
+            padding: 6rem 5%;
             text-align: center;
         }
         .hero h1 {
@@ -179,6 +181,18 @@
             </div>
         </section>
 
+        <section id="projects">
+            <h2>Current Projects</h2>
+            <div class="publication-item">
+                <h3>Tetrahydrocurcumin & Antidepressant Activity</h3>
+                <p>Investigating the therapeutic potential of tetrahydrocurcumin using in-vivo models to understand its effects on depression.</p>
+            </div>
+            <div class="publication-item">
+                <h3>Cyberbullying & Online Safety</h3>
+                <p>A cross-sectional study assessing the impact of online harassment among students in the Pabna District.</p>
+            </div>
+        </section>
+
         <section id="skills">
             <h2>Technical Skills</h2>
             <ul>
@@ -210,4 +224,3 @@
 
 </body>
 </html>
-
