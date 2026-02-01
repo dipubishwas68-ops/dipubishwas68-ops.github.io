@@ -479,18 +479,6 @@ footer {
     transition: all 0.3s ease;
 }
 
-/* WhatsApp: Solid Blue/Teal */
-.btn-whatsapp {
-    background-color: #0099cc; 
-    color: white !important;
-    border: 2px solid #0099cc;
-}
-
-.btn-whatsapp:hover {
-    background-color: #007fae;
-    transform: translateY(-3px);
-}
-
 /* Email: White with Blue Border */
 .btn-email {
     background-color: white;
