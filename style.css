@@ -122,36 +122,71 @@ h2 {
     background: white;
     border-left: 5px solid var(--primary-color); /* Thicker accent line */
     padding: 25px;
-    margin-bottom: 30px; /* More space for the pop-out */
+    margin-bottom: 30px; /* More space between items for the 3D effect */
     
-    /* Layout: Text Left, Image Right */
+    /* Layout */
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     gap: 25px;
     
     /* 3D Transition Settings */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy feel */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy, natural feel */
     position: relative;
     top: 0;
     
-    /* Default State */
+    /* Default State: Flat with subtle shadow */
     box-shadow: 0 5px 10px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
 }
 
 /* THE 3D HOVER EFFECT */
 .publication-item:hover {
-    /* Moves the card UP */
+    /* Moves the card UP by 10 pixels */
     transform: translateY(-10px); 
     
-    /* Adds a deep shadow underneath */
-    box-shadow: 0 20px 40px rgba(0, 95, 115, 0.2); 
+    /* Adds a deep, realistic shadow underneath */
+    box-shadow: 0 20px 40px rgba(0, 95, 115, 0.2); /* Tinted with your primary blue */
     
-    /* Highlights border */
+    /* Slightly thickens the border to simulate "weight" */
     border-color: var(--secondary-color);
 }
 
+/* The Text Container */
+.pub-details {
+    flex: 1;
+}
+
+/* The Graphical Abstract Image */
+.pub-image {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    
+    /* The image also gets a small 3D lift */
+    transition: transform 0.4s ease;
+}
+
+.publication-item:hover .pub-image {
+    /* Image tilts slightly when card lifts */
+    transform: scale(1.05); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Mobile Layout */
+@media (max-width: 600px) {
+    .publication-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .pub-image {
+        width: 100%;
+        height: auto;
+        margin-top: 15px;
+    }
+}
 /* The Text Container */
 .pub-details {
     flex: 1; /* Allows text to take up all available space */
@@ -159,21 +194,14 @@ h2 {
 
 /* The Graphical Abstract Image */
 .pub-image {
-    width: 200px;           /* Fixed width */
+    width: 200px;           /* Fixed width for consistency */
     height: 120px;          /* Fixed height */
-    object-fit: cover;      
-    border-radius: 8px;     
-    border: 1px solid #eee; 
-    
-    /* Image Animation */
-    transition: transform 0.4s ease;
-    background-color: #f9f9f9;
-}
-
-/* Zoom image slightly on hover */
-.publication-item:hover .pub-image {
-    transform: scale(1.05); 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    object-fit: cover;      /* Ensures image looks good inside the box */
+    border-radius: 8px;     /* Rounded corners */
+    border: 1px solid #eee; /* Subtle border */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Small shadow to pop */
+    flex-shrink: 0;         /* Prevents image from shrinking */
+    background-color: #f9f9f9; /* Placeholder color if image loads slowly */
 }
 
 /* Mobile Layout for Publications: Stack them */
@@ -185,7 +213,7 @@ h2 {
     .pub-image {
         width: 100%;        /* Full width on phone */
         height: auto;       /* Auto height */
-        margin-top: 15px;   
+        margin-top: 15px;   /* Add space above image */
     }
 }
 
