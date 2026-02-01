@@ -87,12 +87,42 @@ h2 {
     font-weight: bold;
     font-size: 0.9rem;
 }
+
+/* --- UPDATED PUBLICATION STYLES (With Graphical Abstract) --- */
 .publication-item {
     background: white;
     border-left: 4px solid var(--primary-color);
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+    /* This makes the Image and Text sit side-by-side */
+    display: flex; 
+    gap: 20px;     
+    align-items: center;
+}
+
+/* Style for the Abstract Image */
+.pub-image {
+    width: 150px;           /* Fixed width for thumbnails */
+    height: 100px;          /* Fixed height */
+    object-fit: cover;      /* Crops image nicely without stretching */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    flex-shrink: 0;         /* Prevents image from squishing */
+}
+
+/* Mobile Layout for Publications */
+@media (max-width: 600px) {
+    .publication-item {
+        flex-direction: column; /* Stacks image on top of text */
+        align-items: flex-start;
+    }
+    .pub-image {
+        width: 100%;        /* Full width on phone */
+        height: auto;       /* Auto height */
+        margin-bottom: 10px;
+    }
 }
 
 /* Footer */
@@ -117,12 +147,9 @@ footer {
     background: white;
     padding: 25px;
     border-radius: 12px; 
-    
-    /* UPDATED: Sea Water Shadow (Light Teal/Cyan) */
     box-shadow: 0 4px 15px rgba(0, 150, 170, 0.15); 
-    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e0f7fa; /* Slightly blue border */
+    border: 1px solid #e0f7fa; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -130,15 +157,13 @@ footer {
 
 .certificate-card:hover {
     transform: translateY(-5px); 
-    
-    /* UPDATED: Stronger Sea Water Shadow on Hover */
     box-shadow: 0 10px 25px rgba(0, 150, 170, 0.3);
 }
 
 .certificate-card h3 {
     margin: 0 0 10px 0;
     font-size: 1.1rem;
-    color: #005f73; /* Primary Deep Blue */
+    color: #005f73; 
     font-weight: 700;
 }
 
@@ -171,7 +196,6 @@ footer {
 
 /* --- Mobile Navigation (Hamburger Menu) --- */
 
-/* Style the 3-Bar Icon */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -186,7 +210,6 @@ footer {
     transition: all 0.3s ease;
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
