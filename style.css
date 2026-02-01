@@ -515,3 +515,24 @@ footer {
     font-weight: 600;
     color: var(--text-dark);
 }
+
+/* --- CLICKABLE PUBLICATION TITLES --- */
+
+.pub-title-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Keep text dark by default */
+    display: block; /* Makes the whole title clickable area larger */
+    margin-bottom: 5px;
+    transition: color 0.2s ease;
+}
+
+.pub-title-link strong {
+    font-size: 1.1rem; /* Make title slightly larger */
+    line-height: 1.4;
+}
+
+/* Hover Effect: Changes color to Primary Blue */
+.pub-title-link:hover {
+    color: var(--primary-color); 
+    text-decoration: underline; /* Adds underline on hover like Google Scholar */
+}
