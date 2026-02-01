@@ -311,6 +311,132 @@ footer {
         display: flex;
     }
 
+    /* --- NEW CONTACT SECTION STYLES --- */
+
+/* Main Layout Container */
+.contact-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 0;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+}
+
+/* LEFT SIDE: Heading & Buttons */
+.contact-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-left h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border: none; /* Removes the bottom line from your default H2 style if desired */
+    padding: 0;
+}
+
+.contact-buttons-row {
+    display: flex;
+    gap: 15px;
+}
+
+/* General Button Style */
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    padding: 12px 30px;
+    border-radius: 50px; /* Pill Shape */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* WhatsApp Button (Solid Teal/Blue) */
+.btn-whatsapp {
+    background-color: #00a8cc; /* Adjust color to match your image preference */
+    color: white;
+    border: 2px solid #00a8cc;
+}
+
+/* Email Button (White with Blue Border) */
+.btn-email {
+    background-color: transparent;
+    color: #005f73;
+    border: 2px solid #005f73;
+}
+
+.btn-email:hover {
+    background-color: #005f73;
+    color: white;
+}
+
+/* RIGHT SIDE: Social Card */
+.social-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow like the image */
+    flex: 1;
+    min-width: 300px;
+}
+
+.social-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.social-links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-links-grid a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.social-links-grid a:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .contact-layout {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .contact-buttons-row {
+        width: 100%;
+    }
+    
+    .btn-contact {
+        flex: 1; /* Buttons take full width on phone */
+        justify-content: center;
+    }
+    
+    .social-card {
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding doesn't break layout */
+    }
+}
+
     .nav-links li {
         margin: 15px 0; 
     }
