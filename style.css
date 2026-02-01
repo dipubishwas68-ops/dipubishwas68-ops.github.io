@@ -124,7 +124,7 @@ h2 {
     padding: 25px;
     margin-bottom: 30px; /* More space for the pop-out */
     
-    /* ADDED: Round Shaped Edges */
+    /* Round Shaped Edges */
     border-radius: 15px; 
     
     /* Layout: Text Left, Image Right */
@@ -134,13 +134,18 @@ h2 {
     gap: 25px;
     
     /* 3D Transition Settings */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy feel */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     position: relative;
     top: 0;
     
     /* Default State */
     box-shadow: 0 5px 10px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
+
+    /* Fix for smooth edges during 3D animation */
+    backface-visibility: hidden;
+    transform: translateZ(0); 
+    overflow: hidden; /* Ensures contents stay inside the round corners */
 }
 
 /* THE 3D HOVER EFFECT */
@@ -189,35 +194,6 @@ h2 {
         width: 100%;        /* Full width on phone */
         height: auto;       /* Auto height */
         margin-top: 15px;   
-    }
-}
-/* The Text Container */
-.pub-details {
-    flex: 1; /* Allows text to take up all available space */
-}
-
-/* The Graphical Abstract Image */
-.pub-image {
-    width: 200px;           /* Fixed width for consistency */
-    height: 120px;          /* Fixed height */
-    object-fit: cover;      /* Ensures image looks good inside the box */
-    border-radius: 8px;     /* Rounded corners */
-    border: 1px solid #eee; /* Subtle border */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Small shadow to pop */
-    flex-shrink: 0;         /* Prevents image from shrinking */
-    background-color: #f9f9f9; /* Placeholder color if image loads slowly */
-}
-
-/* Mobile Layout for Publications: Stack them */
-@media (max-width: 600px) {
-    .publication-item {
-        flex-direction: column; /* Text top, Image bottom */
-        align-items: flex-start;
-    }
-    .pub-image {
-        width: 100%;        /* Full width on phone */
-        height: auto;       /* Auto height */
-        margin-top: 15px;   /* Add space above image */
     }
 }
 
