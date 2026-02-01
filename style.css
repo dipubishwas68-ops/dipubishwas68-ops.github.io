@@ -61,6 +61,35 @@ nav {
     margin-top: 10px;
 }
 
+/* --- Hero Button (Mobile Friendly) --- */
+.hero-btn {
+    display: inline-block;
+    background-color: var(--secondary-color); /* Mint green color */
+    color: var(--text-dark);
+    padding: 12px 35px; /* Large padding makes it easy to tap */
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Adds depth */
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px); /* Moves up slightly when hovered */
+    background-color: white;     /* Changes to white */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Mobile specific adjustment for the button */
+@media (max-width: 600px) {
+    .hero-btn {
+        width: 60%; /* Wider button on small screens */
+        padding: 15px 0; /* Taller touch target */
+    }
+}
+
 /* Sections */
 .container {
     padding: 2rem 5%;
@@ -88,40 +117,48 @@ h2 {
     font-size: 0.9rem;
 }
 
-/* --- UPDATED PUBLICATION STYLES (With Graphical Abstract) --- */
+/* --- UPDATED PUBLICATION STYLES (Text Left, Image Right) --- */
 .publication-item {
     background: white;
     border-left: 4px solid var(--primary-color);
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     
-    /* This makes the Image and Text sit side-by-side */
+    /* Flexbox layout to put items side-by-side */
     display: flex; 
-    gap: 20px;     
-    align-items: center;
+    justify-content: space-between; /* Pushes Text to Left, Image to Right */
+    align-items: center; /* Vertically center the content */
+    gap: 25px; /* Space between text and image */
 }
 
-/* Style for the Abstract Image */
+/* The Text Container */
+.pub-details {
+    flex: 1; /* Allows text to take up all available space */
+}
+
+/* The Graphical Abstract Image */
 .pub-image {
-    width: 150px;           /* Fixed width for thumbnails */
-    height: 100px;          /* Fixed height */
-    object-fit: cover;      /* Crops image nicely without stretching */
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    flex-shrink: 0;         /* Prevents image from squishing */
+    width: 200px;           /* Fixed width for consistency */
+    height: 120px;          /* Fixed height */
+    object-fit: cover;      /* Ensures image looks good inside the box */
+    border-radius: 8px;     /* Rounded corners */
+    border: 1px solid #eee; /* Subtle border */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Small shadow to pop */
+    flex-shrink: 0;         /* Prevents image from shrinking */
+    background-color: #f9f9f9; /* Placeholder color if image loads slowly */
 }
 
-/* Mobile Layout for Publications */
+/* Mobile Layout for Publications: Stack them */
 @media (max-width: 600px) {
     .publication-item {
-        flex-direction: column; /* Stacks image on top of text */
+        flex-direction: column; /* Text top, Image bottom */
         align-items: flex-start;
     }
     .pub-image {
         width: 100%;        /* Full width on phone */
         height: auto;       /* Auto height */
-        margin-bottom: 10px;
+        margin-top: 15px;   /* Add space above image */
     }
 }
 
@@ -147,9 +184,12 @@ footer {
     background: white;
     padding: 25px;
     border-radius: 12px; 
+    
+    /* Sea Water Shadow (Light Teal/Cyan) */
     box-shadow: 0 4px 15px rgba(0, 150, 170, 0.15); 
+    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e0f7fa; 
+    border: 1px solid #e0f7fa; /* Slightly blue border */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -157,13 +197,15 @@ footer {
 
 .certificate-card:hover {
     transform: translateY(-5px); 
+    
+    /* Stronger Sea Water Shadow on Hover */
     box-shadow: 0 10px 25px rgba(0, 150, 170, 0.3);
 }
 
 .certificate-card h3 {
     margin: 0 0 10px 0;
     font-size: 1.1rem;
-    color: #005f73; 
+    color: #005f73; /* Primary Deep Blue */
     font-weight: 700;
 }
 
@@ -196,6 +238,7 @@ footer {
 
 /* --- Mobile Navigation (Hamburger Menu) --- */
 
+/* Style the 3-Bar Icon */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -210,6 +253,7 @@ footer {
     transition: all 0.3s ease;
 }
 
+/* Mobile Styles */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
