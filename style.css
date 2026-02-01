@@ -10,13 +10,13 @@ body {
     line-height: 1.6;
     margin: 0;
     color: var(--text-dark);
-    background-color: #fdfdfd; /* Slight off-white background makes cards pop */
+    background-color: #fdfdfd; 
 }
 
 /* Navigation Layout */
 nav {
     display: flex;
-    justify-content: flex-end; /* Keeps menu on right */
+    justify-content: flex-end; 
     align-items: center;
     background: #fff;
     padding: 1rem 5%;
@@ -61,11 +61,150 @@ nav {
     margin-top: 10px;
 }
 
-/* --- Hero Button (Mobile Friendly) --- */
-.hero-btn {
-    display: inline-block;
-    background-color: var(--secondary-color); /* Mint green color */
-    color: var(--text-dark);
-    padding: 12px 35px; /* Large padding makes it easy to tap */
-    border-radius: 50px; /* Pill shape */
+/* Sections */
+.container {
+    padding: 2rem 5%;
+    max-width: 1000px;
+    margin: auto;
+}
+h2 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 2rem;
+    color: var(--primary-color);
+}
+
+/* Lists */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.skill-tag {
+    background: var(--secondary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.publication-item {
+    background: white;
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* --- Certificate Card Styles --- */
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.certificate-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #222;
+    font-weight: 700;
+}
+
+.certificate-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+}
+
+.cert-btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--primary-color);
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.cert-btn::before {
+    content: "★ ";
+    margin-right: 5px;
+}
+
+.cert-btn:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* --- Mobile Navigation (Hamburger Menu) --- */
+
+/* Style the 3-Bar Icon */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0; 
+    }
+}
