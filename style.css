@@ -117,74 +117,78 @@ h2 {
     font-size: 0.9rem;
 }
 
-/* --- UPDATED PUBLICATION STYLES (3D Effect) --- */
+/* --- UPDATED PUBLICATION STYLES (3D Effect + Round Edges) --- */
 .publication-item {
     background: white;
     border-left: 5px solid var(--primary-color); /* Thicker accent line */
     padding: 25px;
-    margin-bottom: 30px; /* More space between items for the 3D effect */
+    margin-bottom: 30px; /* More space for the pop-out */
     
-    /* Layout */
+    /* ADDED: Round Shaped Edges */
+    border-radius: 15px; 
+    
+    /* Layout: Text Left, Image Right */
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     gap: 25px;
     
     /* 3D Transition Settings */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy, natural feel */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy feel */
     position: relative;
     top: 0;
     
-    /* Default State: Flat with subtle shadow */
+    /* Default State */
     box-shadow: 0 5px 10px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
 }
 
 /* THE 3D HOVER EFFECT */
 .publication-item:hover {
-    /* Moves the card UP by 10 pixels */
+    /* Moves the card UP */
     transform: translateY(-10px); 
     
-    /* Adds a deep, realistic shadow underneath */
-    box-shadow: 0 20px 40px rgba(0, 95, 115, 0.2); /* Tinted with your primary blue */
+    /* Adds a deep shadow underneath */
+    box-shadow: 0 20px 40px rgba(0, 95, 115, 0.2); 
     
-    /* Slightly thickens the border to simulate "weight" */
+    /* Highlights border */
     border-color: var(--secondary-color);
 }
 
 /* The Text Container */
 .pub-details {
-    flex: 1;
+    flex: 1; /* Allows text to take up all available space */
 }
 
 /* The Graphical Abstract Image */
 .pub-image {
-    width: 200px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #eee;
+    width: 200px;           /* Fixed width */
+    height: 120px;          /* Fixed height */
+    object-fit: cover;      
+    border-radius: 10px;    /* Rounded corners for the image too */
+    border: 1px solid #eee; 
     
-    /* The image also gets a small 3D lift */
+    /* Image Animation */
     transition: transform 0.4s ease;
+    background-color: #f9f9f9;
 }
 
+/* Zoom image slightly on hover */
 .publication-item:hover .pub-image {
-    /* Image tilts slightly when card lifts */
     transform: scale(1.05); 
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Mobile Layout */
+/* Mobile Layout for Publications: Stack them */
 @media (max-width: 600px) {
     .publication-item {
-        flex-direction: column;
+        flex-direction: column; /* Text top, Image bottom */
         align-items: flex-start;
     }
     .pub-image {
-        width: 100%;
-        height: auto;
-        margin-top: 15px;
+        width: 100%;        /* Full width on phone */
+        height: auto;       /* Auto height */
+        margin-top: 15px;   
     }
 }
 /* The Text Container */
