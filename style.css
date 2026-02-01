@@ -117,19 +117,39 @@ h2 {
     font-size: 0.9rem;
 }
 
-/* --- UPDATED PUBLICATION STYLES (Text Left, Image Right) --- */
+/* --- UPDATED PUBLICATION STYLES (3D Effect) --- */
 .publication-item {
     background: white;
-    border-left: 4px solid var(--primary-color);
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--primary-color); /* Thicker accent line */
+    padding: 25px;
+    margin-bottom: 30px; /* More space for the pop-out */
     
-    /* Flexbox layout to put items side-by-side */
+    /* Layout: Text Left, Image Right */
     display: flex; 
-    justify-content: space-between; /* Pushes Text to Left, Image to Right */
-    align-items: center; /* Vertically center the content */
-    gap: 25px; /* Space between text and image */
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 25px;
+    
+    /* 3D Transition Settings */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy feel */
+    position: relative;
+    top: 0;
+    
+    /* Default State */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+/* THE 3D HOVER EFFECT */
+.publication-item:hover {
+    /* Moves the card UP */
+    transform: translateY(-10px); 
+    
+    /* Adds a deep shadow underneath */
+    box-shadow: 0 20px 40px rgba(0, 95, 115, 0.2); 
+    
+    /* Highlights border */
+    border-color: var(--secondary-color);
 }
 
 /* The Text Container */
@@ -139,14 +159,21 @@ h2 {
 
 /* The Graphical Abstract Image */
 .pub-image {
-    width: 200px;           /* Fixed width for consistency */
+    width: 200px;           /* Fixed width */
     height: 120px;          /* Fixed height */
-    object-fit: cover;      /* Ensures image looks good inside the box */
-    border-radius: 8px;     /* Rounded corners */
-    border: 1px solid #eee; /* Subtle border */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Small shadow to pop */
-    flex-shrink: 0;         /* Prevents image from shrinking */
-    background-color: #f9f9f9; /* Placeholder color if image loads slowly */
+    object-fit: cover;      
+    border-radius: 8px;     
+    border: 1px solid #eee; 
+    
+    /* Image Animation */
+    transition: transform 0.4s ease;
+    background-color: #f9f9f9;
+}
+
+/* Zoom image slightly on hover */
+.publication-item:hover .pub-image {
+    transform: scale(1.05); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* Mobile Layout for Publications: Stack them */
@@ -158,7 +185,7 @@ h2 {
     .pub-image {
         width: 100%;        /* Full width on phone */
         height: auto;       /* Auto height */
-        margin-top: 15px;   /* Add space above image */
+        margin-top: 15px;   
     }
 }
 
