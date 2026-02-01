@@ -13,7 +13,7 @@ body {
     background-color: #fdfdfd; 
 }
 
-/* Navigation Layout */
+/* --- NAVIGATION --- */
 nav {
     display: flex;
     justify-content: flex-end; 
@@ -42,7 +42,46 @@ nav {
     font-weight: bold;
 }
 
-/* Hero Section */
+/* Mobile Hamburger Icon */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px 0;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 15px 0; 
+    }
+}
+
+/* --- HERO SECTION --- */
 .hero {
     background: linear-gradient(rgba(0, 95, 115, 0.6), rgba(0, 95, 115, 0.6)), url('cover.jpg');
     background-size: cover;
@@ -61,36 +100,7 @@ nav {
     margin-top: 10px;
 }
 
-/* --- Hero Button (Mobile Friendly) --- */
-.hero-btn {
-    display: inline-block;
-    background-color: var(--secondary-color); /* Mint green color */
-    color: var(--text-dark);
-    padding: 12px 35px; /* Large padding makes it easy to tap */
-    border-radius: 50px; /* Pill shape */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-top: 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Adds depth */
-    transition: all 0.3s ease;
-}
-
-.hero-btn:hover {
-    transform: translateY(-3px); /* Moves up slightly when hovered */
-    background-color: white;     /* Changes to white */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-/* Mobile specific adjustment for the button */
-@media (max-width: 600px) {
-    .hero-btn {
-        width: 60%; /* Wider button on small screens */
-        padding: 15px 0; /* Taller touch target */
-    }
-}
-
-/* Sections */
+/* --- GENERAL SECTIONS --- */
 .container {
     padding: 2rem 5%;
     max-width: 1000px;
@@ -103,7 +113,7 @@ h2 {
     color: var(--primary-color);
 }
 
-/* Lists */
+/* --- SKILLS --- */
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
@@ -117,23 +127,23 @@ h2 {
     font-size: 0.9rem;
 }
 
-/* --- UPDATED PUBLICATION STYLES (3D Effect + Round Edges) --- */
+/* --- PUBLICATIONS (3D Effect + Round Edges) --- */
 .publication-item {
     background: white;
-    border-left: 5px solid var(--primary-color); /* Thicker accent line */
+    border-left: 5px solid var(--primary-color);
     padding: 25px;
-    margin-bottom: 30px; /* More space for the pop-out */
+    margin-bottom: 30px;
     
     /* Round Shaped Edges */
     border-radius: 15px; 
     
-    /* Layout: Text Left, Image Right */
+    /* Layout */
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     gap: 25px;
     
-    /* 3D Transition Settings */
+    /* 3D Transition */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     position: relative;
     top: 0;
@@ -142,72 +152,53 @@ h2 {
     box-shadow: 0 5px 10px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
 
-    /* Fix for smooth edges during 3D animation */
+    /* Fix for smooth edges during animation */
     backface-visibility: hidden;
     transform: translateZ(0); 
-    overflow: hidden; /* Ensures contents stay inside the round corners */
+    overflow: hidden; 
 }
 
-/* THE 3D HOVER EFFECT */
+/* 3D Hover Effect */
 .publication-item:hover {
-    /* Moves the card UP */
     transform: translateY(-10px); 
-    
-    /* Adds a deep shadow underneath */
     box-shadow: 0 20px 40px rgba(0, 95, 115, 0.2); 
-    
-    /* Highlights border */
     border-color: var(--secondary-color);
 }
 
-/* The Text Container */
 .pub-details {
-    flex: 1; /* Allows text to take up all available space */
+    flex: 1;
 }
 
-/* The Graphical Abstract Image */
+/* Graphical Abstract Image */
 .pub-image {
-    width: 200px;           /* Fixed width */
-    height: 120px;          /* Fixed height */
+    width: 200px;
+    height: 120px;
     object-fit: cover;      
-    border-radius: 10px;    /* Rounded corners for the image too */
+    border-radius: 10px;    
     border: 1px solid #eee; 
-    
-    /* Image Animation */
     transition: transform 0.4s ease;
     background-color: #f9f9f9;
 }
 
-/* Zoom image slightly on hover */
 .publication-item:hover .pub-image {
     transform: scale(1.05); 
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Mobile Layout for Publications: Stack them */
+/* Mobile Publication Layout */
 @media (max-width: 600px) {
     .publication-item {
-        flex-direction: column; /* Text top, Image bottom */
+        flex-direction: column; 
         align-items: flex-start;
     }
     .pub-image {
-        width: 100%;        /* Full width on phone */
-        height: auto;       /* Auto height */
+        width: 100%;       
+        height: auto;     
         margin-top: 15px;   
     }
 }
 
-/* Footer */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-}
-
-/* --- Certificate Card Styles (Sea Water Effect) --- */
-
+/* --- CERTIFICATES (Sea Water Effect) --- */
 .certificates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -219,12 +210,10 @@ footer {
     background: white;
     padding: 25px;
     border-radius: 12px; 
-    
-    /* Sea Water Shadow (Light Teal/Cyan) */
+    /* Sea Water Shadow */
     box-shadow: 0 4px 15px rgba(0, 150, 170, 0.15); 
-    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e0f7fa; /* Slightly blue border */
+    border: 1px solid #e0f7fa; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -232,15 +221,13 @@ footer {
 
 .certificate-card:hover {
     transform: translateY(-5px); 
-    
-    /* Stronger Sea Water Shadow on Hover */
     box-shadow: 0 10px 25px rgba(0, 150, 170, 0.3);
 }
 
 .certificate-card h3 {
     margin: 0 0 10px 0;
     font-size: 1.1rem;
-    color: #005f73; /* Primary Deep Blue */
+    color: #005f73;
     font-weight: 700;
 }
 
@@ -260,185 +247,18 @@ footer {
     font-weight: bold;
     transition: color 0.2s;
 }
-
 .cert-btn::before {
     content: "★ ";
     margin-right: 5px;
 }
-
 .cert-btn:hover {
     color: var(--secondary-color);
     text-decoration: underline;
 }
 
-/* --- Mobile Navigation (Hamburger Menu) --- */
+/* --- CONTACT SECTION (Clean Split Layout) --- */
 
-/* Style the 3-Bar Icon */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-dark);
-    transition: all 0.3s ease;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        background-color: white;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        padding: 20px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    /* --- NEW CONTACT SECTION STYLES --- */
-
-/* Main Layout Container */
-.contact-layout {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    padding: 20px 0;
-    flex-wrap: wrap; /* Allows stacking on mobile */
-}
-
-/* LEFT SIDE: Heading & Buttons */
-.contact-left {
-    flex: 1;
-    min-width: 300px;
-}
-
-.contact-left h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    border: none; /* Removes the bottom line from your default H2 style if desired */
-    padding: 0;
-}
-
-.contact-buttons-row {
-    display: flex;
-    gap: 15px;
-}
-
-/* General Button Style */
-.btn-contact {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px; /* Space between icon and text */
-    padding: 12px 30px;
-    border-radius: 50px; /* Pill Shape */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-contact:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* WhatsApp Button (Solid Teal/Blue) */
-.btn-whatsapp {
-    background-color: #00a8cc; /* Adjust color to match your image preference */
-    color: white;
-    border: 2px solid #00a8cc;
-}
-
-/* Email Button (White with Blue Border) */
-.btn-email {
-    background-color: transparent;
-    color: #005f73;
-    border: 2px solid #005f73;
-}
-
-.btn-email:hover {
-    background-color: #005f73;
-    color: white;
-}
-
-/* RIGHT SIDE: Social Card */
-.social-card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow like the image */
-    flex: 1;
-    min-width: 300px;
-}
-
-.social-card h3 {
-    margin: 0 0 20px 0;
-    font-size: 1.2rem;
-    color: var(--text-dark);
-}
-
-.social-links-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.social-links-grid a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-}
-
-.social-links-grid a:hover {
-    color: var(--primary-color);
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .contact-layout {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .contact-buttons-row {
-        width: 100%;
-    }
-    
-    .btn-contact {
-        flex: 1; /* Buttons take full width on phone */
-        justify-content: center;
-    }
-    
-    .social-card {
-        width: 100%;
-        box-sizing: border-box; /* Ensures padding doesn't break layout */
-    }
-}
-
-    /* --- CONTACT SECTION DESIGN --- */
-
+/* Main Layout */
 .contact-layout {
     display: flex;
     justify-content: space-between;
@@ -448,199 +268,69 @@ footer {
     flex-wrap: wrap; /* Stacks on mobile */
 }
 
-/* LEFT SIDE */
+/* Left Side */
 .contact-left {
     flex: 1;
     min-width: 300px;
 }
-
-.contact-left h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-    border: none; /* Removes bottom line */
-    padding: 0;
-}
-
-.contact-buttons-row {
-    display: flex;
-    gap: 15px;
-}
-
-/* BUTTON STYLES (Pill Shape) */
-.btn-contact {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px; /* Space between icon and text */
-    padding: 12px 35px;
-    border-radius: 50px; /* Makes it round/pill-shaped */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-/* WhatsApp: Solid Blue/Teal */
-.btn-whatsapp {
-    background-color: #0099cc; 
-    color: white !important;
-    border: 2px solid #0099cc;
-}
-
-.btn-whatsapp:hover {
-    background-color: #007fae;
-    transform: translateY(-3px);
-}
-
-/* Email: White with Blue Border */
-.btn-email {
-    background-color: white;
-    color: #005f73 !important;
-    border: 2px solid #005f73;
-}
-
-.btn-email:hover {
-    background-color: #f0f8ff;
-    transform: translateY(-3px);
-}
-
-/* RIGHT SIDE: SOCIAL CARD */
-.social-card {
-    background: white;
-    padding: 25px 40px;
-    border-radius: 20px; /* Round corners like the image */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* Soft shadow */
-    flex: 1;
-    min-width: 300px;
-    border: 1px solid #f0f0f0;
-}
-
-.social-card h3 {
-    margin: 0 0 15px 0;
-    font-size: 1.1rem;
-    color: #333;
-    font-weight: 800;
-}
-
-.social-links-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-}
-
-.social-links-grid a {
-    text-decoration: none;
-    color: #444;
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.2s;
-}
-
-.social-links-grid a:hover {
-    color: var(--primary-color);
-}
-
-/* Mobile Fix */
-@media (max-width: 768px) {
-    .contact-layout {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .contact-buttons-row {
-        width: 100%;
-    }
-    .btn-contact {
-        flex: 1;
-        justify-content: center;
-    }
-    .social-card {
-        width: 100%;
-        box-sizing: border-box; /* Fixes width issue */
-    }
-}
-/* --- CONTACT SECTION DESIGN --- */
-
-.contact-layout {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    padding: 30px 0;
-    flex-wrap: wrap; /* Stacks on mobile */
-}
-
-/* LEFT SIDE */
-.contact-left {
-    flex: 1;
-    min-width: 300px;
-}
-
 .contact-left h2 {
     font-size: 2rem;
     margin-bottom: 25px;
     border: none;
     padding: 0;
 }
-
 .contact-buttons-row {
     display: flex;
     gap: 15px;
 }
 
-/* BUTTON STYLES (Pill Shape) */
+/* Button Styles (Pill Shape) */
 .btn-contact {
     display: inline-flex;
     align-items: center;
-    gap: 10px; /* Space between icon and text */
+    gap: 10px; 
     padding: 12px 35px;
-    border-radius: 50px; /* This creates the round pill shape */
+    border-radius: 50px; 
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
     transition: all 0.3s ease;
 }
 
-/* Email Button: White with Blue Border */
+/* Email Button */
 .btn-email {
     background-color: white;
-    color: #005f73 !important; /* Force text color */
+    color: #005f73 !important; 
     border: 2px solid #005f73;
 }
-
 .btn-email:hover {
     background-color: #005f73;
     color: white !important;
     transform: translateY(-3px);
 }
 
-/* RIGHT SIDE: SOCIAL CARD */
+/* Right Side: Social Card */
 .social-card {
     background: white;
     padding: 25px 40px;
-    border-radius: 20px; /* Round corners */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* Soft shadow */
+    border-radius: 20px; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
     flex: 1;
     min-width: 300px;
     border: 1px solid #f0f0f0;
 }
-
 .social-card h3 {
     margin: 0 0 15px 0;
     font-size: 1.1rem;
     color: #333;
     font-weight: 800;
 }
-
 .social-links-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
 }
-
 .social-links-grid a {
     text-decoration: none;
     color: #444;
@@ -651,12 +341,11 @@ footer {
     gap: 8px;
     transition: color 0.2s;
 }
-
 .social-links-grid a:hover {
     color: var(--primary-color);
 }
 
-/* Mobile Fix */
+/* Contact Mobile Fix */
 @media (max-width: 768px) {
     .contact-layout {
         flex-direction: column;
@@ -673,4 +362,13 @@ footer {
         width: 100%;
         box-sizing: border-box;
     }
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }
