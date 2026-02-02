@@ -91,10 +91,69 @@
 
         <section id="publications">
             <h2>Publications</h2>
-            <p>I have authored research articles published in journals.</p>
             
-            <div id="publication-list">
-                <p style="color: #666;">Loading publications via DOI...</p>
+            <div class="publication-item">
+                <div class="pub-details">
+                    <a href="https://doi.org/10.1007/s43450-025-00629-9" target="_blank" class="pub-title-link">
+                        <strong>Modulatory Anxiolytic Effect of Aucubin on Diazepam in Swiss Albino Mice: Possible Mechanisms Through In Vivo Approach with Receptor Binding Affinity</strong>
+                    </a>
+                    <br>
+                    <em>Dipu Bishwas, Rubel Hasan, Md. Shimul Bhuia, Tamanna Khatun, Na’il Saleh, Siddique Akber Ansari, Nowreen Tabassum Ahammed, Mahfuza Khanom Mira, Nusrat Jahan Tohfa, Md. Amirul Islam, Muhammad Torequl Islam</em><br>
+                    <span>
+                        <a href="https://link.springer.com/journal/43450" target="_blank" style="text-decoration: none; color: #2B65EC; font-weight: normal;">
+                            Revista Brasileira de Farmacognosia
+                        </a>
+                    </span>
+                </div>
+                <img src="abs-aucubin.jpg" alt="Graphical Abstract" class="pub-image">
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-details">
+                    <a href="https://doi.org/10.1002/open.202500114" target="_blank" class="pub-title-link">
+                        <strong>Evaluation of the Sedative Activity of Naringenin: In Vivo Study with Pharmacokinetics and Molecular Docking Insights</strong>
+                    </a>
+                    <br>
+                    <em>Dipu Bishwas, Md. Shimul Bhuia, Salehin Sheikh, Mohammed Alfaifi, Abdul Malik, Nikhat J. Siddiqui, Divya Jain, Mehedi Hasan Bappi, and Muhammad Torequl Islam</em><br>
+                    <span>
+                        <a href="https://chemistry-europe.onlinelibrary.wiley.com/journal/21911363" target="_blank" style="text-decoration: none; color: #2B65EC; font-weight: normal;">
+                            ChemistryOpen
+                        </a>
+                    </span>
+                </div>
+                <img src="abs-naringenin.jpg" alt="Graphical Abstract" class="pub-image">
+            </div>
+            
+            <div class="publication-item">
+                <div class="pub-details">
+                    <a href="https://doi.org/10.1007/s12035-025-05176-x" target="_blank" class="pub-title-link">
+                        <strong>Synergistic Sedative Activity of Indirubin on Diazepam in Thiopental Sodium-induced Sleeping Mice: A Potential GABAergic Transmission</strong>
+                    </a>
+                    <br>
+                    <em>Tamanna Khatun, Abdul Malik, Abdullah K. Alshememry, Rubel Hasan, Md. Shimul Bhuia, Raihan Chowdhury, Sabiha Fatima, Dipu Bishwas, Sonaly Akter Mukty, Ishrat Jahan Disha, Mehedi Hasan Bappi, Muhammad Torequl Islam</em><br>
+                    <span>
+                        <a href="https://link.springer.com/journal/12035" target="_blank" style="text-decoration: none; color: #2B65EC; font-weight: normal;">
+                            Molecular Neurobiology
+                        </a>
+                    </span>
+                </div>
+                <img src="abs-indirubin.jpg" alt="Graphical Abstract" class="pub-image">
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-details">
+                    <a href="https://doi.org/10.1002/ddr.70201" target="_blank" class="pub-title-link">
+                        <strong>Exploring the Analgesic and Antidiarrheal Properties of Angelicin Through Cyclooxygenase Inhibition and M-Opioid Receptor Interaction: In Vivo and In Silico Studies</strong>
+                    </a>
+                    <br>
+                    <em>Sourav Bagchi, Dipu Bishwas, Mst Muslima Khatun, Most. Israt Jahan Oni, Md. Shimul Bhuia, Mohammed Alfaifi, Faisal H. Altemani, Abdullah H. Altemani, Salehin Sheikh, Muhammad Torequl Islam</em><br>
+                    <span>
+                        <a href="https://analyticalsciencejournals.onlinelibrary.wiley.com/journal/10982299" target="_blank" style="text-decoration: none; color: #2B65EC; font-weight: normal;">
+                            Drug Development Research
+                        </a>
+                    </span>
+                </div>
+                <img src="abs-angelicin.jpg" alt="Graphical Abstract" class="pub-image">
             </div>
         </section>
 
@@ -299,72 +358,10 @@
             navLinks.classList.toggle('active');
         }
     </script>
-<script>
-        // Add your DOI list here
-        const myDOIs = [
-            "10.1007/s43450-025-00629-9",
-            "10.1002/open.202500114",
-            "10.1007/s12035-025-05176-x",
-            "10.1002/ddr.22156" 
-        ];
 
-        async function fetchPublications() {
-            const container = document.getElementById('publication-list');
-            container.innerHTML = ''; // Remove the 'Loading' text
-
-            for (const doi of myDOIs) {
-                try {
-                    // Fetching data from Crossref API
-                    const response = await fetch(`https://api.crossref.org/works/${doi}`);
-                    const data = await response.json();
-                    const work = data.message;
-
-                    // Extracting data
-                    const title = work.title[0];
-                    const journal = work['container-title'] ? work['container-title'][0] : 'Journal Name Not Found';
-                    const url = work.URL;
-                    
-                    // Formatting author names
-                    let authors = "Unknown Author";
-                    if (work.author) {
-                        authors = work.author.map(a => `${a.given} ${a.family}`).join(', ');
-                    }
-
-                    // Creating HTML card (using your existing styles)
-                    const div = document.createElement('div');
-                    div.className = 'publication-item';
-                    
-                    div.innerHTML = `
-                        <div class="pub-details">
-                            <a href="${url}" target="_blank" class="pub-title-link">
-                                <strong>${title}</strong>
-                            </a>
-                            <br>
-                            <em style="font-size: 0.95rem; color: #555;">${authors}</em><br>
-                            <span style="color: #005f73; font-weight: 600; margin-top: 5px; display:inline-block;">${journal}</span>
-                        </div>
-                        
-                        <div class="pub-image-placeholder" style="width: 80px; text-align: center; opacity: 0.5;">
-                            <i class="fas fa-file-alt" style="font-size: 3rem; color: #005f73;"></i>
-                        </div>
-                    `;
-
-                    container.appendChild(div);
-
-                } catch (error) {
-                    console.error('Error fetching DOI:', doi, error);
-                    const errorDiv = document.createElement('div');
-                    errorDiv.innerHTML = `<p style="color:red;">Failed to load: ${doi}</p>`;
-                    container.appendChild(errorDiv);
-                }
-            }
-        }
-
-        // Run the function
-        fetchPublications();
-    </script>
 </body>
 </html>
+
 
 
 
